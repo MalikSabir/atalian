@@ -1,0 +1,97 @@
+<div class="container">
+    <div class="row">
+        <div class="card w-100 mt-5">
+              <div class="card-header bg-dark"> 
+                <div class="d-flex justify-content-between">
+                    <strong class="text-white">Order # {{id}} Detail</strong>
+                    <button routerLink="/" class="btn btn-primary">Order List</button>
+                </div>
+                </div>
+              <div class="card-body">
+                  <h5>Payment via Cash on delivery. Customer IP: {{ip}}</h5>
+                <div class="d-flex justify-content-around">
+                    <div> <b>General</b> 
+                    
+                        <div class="d-flex align-items-start flex-column">
+                            <div class="mb-auto p-2">
+                                <p><strong>Date Created:</strong></p>
+                                <p>{{date}}</p>
+                            </div>
+                            <div class="p-2">
+                                <p><strong>Time:</strong></p>
+                                <p>{{time}}</p>
+                            </div>
+                            <div class="p-2">
+                                <p><strong>Quantity:</strong> {{quantity}}</p>
+                            </div>
+                          </div>
+                    </div>
+                    <div> <b>Billing</b> 
+                    
+                        <div class="d-flex align-items-start flex-column">
+                            <div class="mb-auto p-2">
+                                <p>{{first_name}} {{last_name}}</p>
+                                <p>{{address}}</p>
+                            </div>
+                            <div class="p-2">
+                                <p><strong>Email:</strong></p>
+                                <p>{{email}}</p>
+                            </div>
+                            <div class="p-2">
+                                <p><strong>Phone:</strong></p>
+                                <p>{{phone}}</p>
+                            </div>
+                          </div>
+
+                    </div>
+                    <div> <b>Shipping</b> 
+                    <p><b>Address:</b></p>
+                    <p>{{shipping_address}}</p>
+                    </div>
+                </div>
+              </div>
+              <div class="card-footer text-center">Atalian Shoes</div>
+        </div>
+
+        <!-- begin::card of item -->
+        <div class="card w-100 mt-5 mb-5">
+            <div class="card-header bg-dark">
+                <div class="d-flex">
+                    <div class="mr-auto p-2">
+                        <strong class="text-white">Item</strong>
+                    </div>
+                    <div class="p-2 text-white">Cost</div>
+                    <div class="p-2 pr-4 text-white">Qty</div>
+                    <div class="p-2 pl-5 pr-5 text-white">Total</div>
+                </div>
+            </div>
+
+            <div class="d-flex" *ngFor="let id of itemDetail; let i = index">
+                <div class="mr-auto p-2">
+                    <p class="ml-2"><strong>Variation ID:</strong> {{id.id}}</p>
+                </div>
+                <div class="p-2 text-white">
+                    <p class="text-left">{{id.total}}</p>
+                </div>
+                <div class="p-2 pr-4 text-white">
+                    <p>x 1</p>
+                </div>
+                <div class="p-2 pl-5 pr-5 text-white">
+                    <p>{{id.total}}</p>
+                </div>
+            </div>
+            <div class="card-footer bg-white">
+                <div class="d-flex" *ngFor="let sl of shippingLine; let i = index">
+                    <div class="p-2"><p>Flat Rate</p></div>
+                    <div class="ml-auto p-2">Rs: {{sl.total}}</div>
+                  </div>
+            </div>
+
+            <div class="card-footer">
+                <div class="d-flex" *ngFor="let sl of shippingLine; let i = index">
+                    <div class="p-2"><p>Total</p></div>
+                    <div class="ml-auto p-2">Rs: {{total}}</div>
+                  </div>
+            </div>
+      </div>
+</div>
